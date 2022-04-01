@@ -4,43 +4,46 @@ public class EjercicoBinarioDecimalyViceversa {
 	public static Scanner teclado = new Scanner(System.in);
 
 	public static void main(String[] args) {
-
-		System.out.println("Introduce el codigo");
-		int numero = teclado.nextInt();
-		double binario = decimalABinario(numero);
-		System.out.println(numero + " en binario es: " + binario);
-
-		System.out.println("Introduce el codigo que quieras pasar a decimal");
-		int numero2 = teclado.nextInt();
-		int decimal = binarioADecimal(numero2);
-		System.out.println(numero2 + " en decimal es: " + decimal);
+		String numero;
+		System.out.println("Introduzca un numero que quieras pasar a binario");
+		numero = teclado.nextLine();
+		System.out.println(decimalABinario(numero));
+		String numero2;
+		System.out.println("Introduzca un numero que quieras pasar a decimal");
+		numero2 = teclado.nextLine();
+		System.out.println(binarioADecimal(numero2));
 	}
 
-	public static double decimalABinario(int numero) {
-		double binario = 0;
+	public static String decimalABinario(String numero) {
+		String binario = "";
+		int decimal = Integer.parseInt(numero);
 		int digito;
 		int DIVISOR = 2;
-		for (int i = numero, j = 0; i > 0; i /= DIVISOR, j++) {
+		for (int i = decimal, j = 0; i > 0; i /= DIVISOR, j++) {
 			digito = i % DIVISOR;
-			binario += digito * Math.pow(10, j);
+			binario = (int) Math.pow(digito, j) + binario;
 		}
 		return binario;
 	}
 
-	public static int binarioADecimal(int numero2) {
+	public static String binarioADecimal(String numero2) {
+		String decimal = "";
+		int binario2 = 0;
+		int decimal2 = 0;
+		int posicion = 0;
+		for (int x = numero2.length() - 1; x >= 0; x--) {
+			int digito = 1;
 
-		int decimal = 0;
-		int digito;
-		int DIVISOR = 10;
-		for (int i = numero2, j = 0; i > 0; i /= DIVISOR, j++) {
-			digito = (int) (i % DIVISOR);
-			if (digito != 0 && digito != 1) {
-				return -1;
+			if (numero2.charAt(x) == '0') {
+				digito = 0;
 			}
-			decimal += digito * Math.pow(2, j);
+			double multiplicador = (int) Math.pow(2, posicion);
+			decimal2 =(int) ( digito *  multiplicador);
+			binario2+=decimal2;
+			posicion++;
 		}
+		decimal=String.valueOf(binario2);
 		return decimal;
-
 	}
 
 }
