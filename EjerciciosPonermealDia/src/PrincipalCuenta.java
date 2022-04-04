@@ -2,7 +2,7 @@ package CuentaCorriente;
 
 import java.util.Scanner;
 
-public class Principal {
+public class PrincipalCuenta {
 	public static Scanner teclado = new Scanner(System.in);
 
 	public static void main(String[] args) {
