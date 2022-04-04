@@ -10,6 +10,10 @@ public class Rectangulo {
 		this.ancho = ancho;
 
 	}
+	
+	public Rectangulo(){
+	
+	}
 
 	public double perimetro() {
 		double resultado;
