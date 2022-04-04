@@ -9,7 +9,7 @@ public class Principal {
 		// TODO Auto-generated method stub
 		Cuenta c = new Cuenta(20);
 		String texto;
-		System.out.println("Que operación desea realizar");
+		System.out.println("Que operaciÃ³n desea realizar");
 		texto = teclado.nextLine();
 
 		while (texto != "4") {
