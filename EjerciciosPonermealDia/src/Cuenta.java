@@ -1,8 +1,7 @@
 package CuentaCorriente;
 
+
 public class Cuenta {
-	private double ingreso;
-	private double reintegro;
 	private double saldo;
 	private int contadoringreso;
 	private int contadorreintegro;
@@ -13,39 +12,32 @@ public class Cuenta {
 	}
 
 	public String getSaldo() {
-		return " Tienes este saldo " + this.saldo + " y tienes esta cantidad de ingreso " + this.contadoringreso
-				+ " y esta de reintegro " + this.contadorreintegro;
+		return " Tienes este saldo " + this.saldo + " y tienes " + this.contadoringreso + " ingresos y " + this.contadorreintegro + " reintegro ";
 
 	}
 
-	public int getContadoringreso() {
-		return contadoringreso;
-	}
+	public String setIngreso(double ingreso) {
+		String resultado = "";
+		if (ingreso < 0) {
+			resultado = "El ingreso debe ser mayor que 0";
+		} else {
+			this.saldo += ingreso;
+			this.contadoringreso++;
 
-	public int getContadorreintegro() {
-		return contadorreintegro;
-	}
+		}
 
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
+		return resultado;
 
-	public double getIngreso() {
-		return ingreso;
-	}
-
-	public void setIngreso(double ingreso) {
-		this.saldo += ingreso;
-		this.contadoringreso++;
-	}
-
-	public double getReintegro() {
-		return reintegro;
 	}
 
 	public void setReintegro(double reintegro) {
-		this.saldo -= reintegro;
-		this.contadorreintegro++;
+		String resultado = "";
+		if (reintegro < 0) {
+			resultado = "El reintegro debe ser mayor que 0";
+		} else {
+			this.saldo -= reintegro;
+			this.contadorreintegro++;
+		}
 	}
 
 }
