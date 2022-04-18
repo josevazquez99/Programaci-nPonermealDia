@@ -6,7 +6,7 @@ public class PrincipalCafe {
 
 	public static Scanner teclado=new Scanner(System.in);
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CafeException {
 		
 		//Declaramos el objeto
 		Cafe cafe1=new Cafe(20);
@@ -49,13 +49,15 @@ public class PrincipalCafe {
 			}
 			break;
 			default:
-				System.out.println("Error");
+				throw new CafeException("Error");
 			}
 			System.out.println(menu());
 			System.out.println("Elija una opcion");
 			opcion=teclado.nextLine().charAt(0);
 			}
 		}
+	
+	
 
 	
 
