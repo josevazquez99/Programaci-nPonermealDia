@@ -2,7 +2,7 @@ package Cafe;
 
 import java.util.Scanner;
 
-public class Cafe {
+public class Cafe extends CafeException {
 	private static int depositocafe = 50;
 	private static int depositoleche = 50;
 	private static int depositovasos = 80;
@@ -10,9 +10,9 @@ public class Cafe {
 	private int cafe;
 	private int vasos;
 	private int leche;
-	private double preciocafe = 1;
-	private double precioleche = 0.8;
-	private double preciocafeconleche = 1.5;
+	private static double preciocafe = 1;
+	private static double precioleche = 0.8;
+	private static double preciocafeconleche = 1.5;
 
 	public Cafe(double monedero) {
 		super();
@@ -22,13 +22,13 @@ public class Cafe {
 		this.vasos = Cafe.depositovasos;
 	}
 
-	public String servirCafeSolo(double cantidad) {
+	public String servirCafeSolo(double cantidad) throws CafeException {
 		String mensaje;
 		double vuelta;
 		if (cantidad - this.preciocafe > this.monedero) {
-			mensaje = "No dispone de saldo suficiente";
+			throw new CafeException("No dispone de saldo suficiente");
 		} else if (this.vasos <= 0 || this.cafe <= 0) {
-			mensaje = "No quedan existencias";
+			throw new CafeException("No quedan existencias");
 		} else if (cantidad < this.preciocafe) {
 			mensaje = "Introduzca la cantidad correcta que se le pide";
 		} else {
@@ -41,15 +41,15 @@ public class Cafe {
 		return mensaje;
 	}
 
-	public String servirLecheSola(double cantidad) {
+	public String servirLecheSola(double cantidad) throws CafeException {
 		String mensaje;
 		double vuelta;
 		if (cantidad - this.precioleche > this.monedero) {
-			mensaje = "No dispone de saldo suficiente";
+			throw new CafeException("No dispone de saldo suficiente");
 		} else if (this.vasos <= 0 || this.cafe <= 0) {
-			mensaje = "No quedan existencias";
+			throw new CafeException("No quedan existencias");
 		} else if (cantidad < this.precioleche) {
-			mensaje = "Introduzca la cantidad correcta que se le pide";
+			throw new CafeException("Introduzca la cantidad correcta que se le pide");
 		} else {
 			this.leche--;
 			this.vasos--;
@@ -60,15 +60,15 @@ public class Cafe {
 		return mensaje;
 	}
 
-	public String servirCafeconLeche(double cantidad) {
+	public String servirCafeconLeche(double cantidad) throws CafeException {
 		String mensaje;
 		double vuelta;
 		if (cantidad - this.preciocafeconleche > this.monedero) {
-			mensaje = "No dispone de saldo suficiente";
+			throw new CafeException("No dispone de saldo suficiente");
 		} else if (this.vasos <= 0 || this.cafe <= 0) {
-			mensaje = "No quedan existencias";
+			throw new CafeException("No quedan existencias");
 		} else if (cantidad < this.preciocafeconleche) {
-			mensaje = "Introduzca la cantidad correcta que se le pide";
+			throw new CafeException("Introduzca la cantidad correcta que se le pide");
 		} else {
 			this.cafe--;
 			this.leche--;
@@ -92,22 +92,8 @@ public class Cafe {
 		monedero = 0;
 	}
 
-	public void llenarDeposito(int depositocafe, int depositoleche, int depositovasos) {
-		this.depositocafe = depositocafe;
-		this.depositoleche = depositoleche;
-		this.depositovasos = depositovasos;
-	}
+	public void llenarDeposito() {
 
-	public void setDepositocafe(int depositocafe) {
-		this.depositocafe = depositocafe;
-	}
-
-	public void setDepositoleche(int depositoleche) {
-		this.depositoleche = depositoleche;
-	}
-
-	public void setDepositovasos(int depositovasos) {
-		this.depositovasos = depositovasos;
 	}
 
 	public double getMonedero() {
@@ -121,3 +107,4 @@ public class Cafe {
 	}
 
 }
+
