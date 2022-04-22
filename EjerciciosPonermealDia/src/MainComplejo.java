@@ -33,7 +33,6 @@ public class MainComplejo {
 				imag = Double.parseDouble(teclado.nextLine());
 
 				System.out.println(n2.sumar(n2));
-				System.out.println(n1.sumar(n1));
 				break;
 			}
 			case 2: {
@@ -59,7 +58,6 @@ public class MainComplejo {
 				imag = Double.parseDouble(teclado.nextLine());
 
 				System.out.println(n1.restar(n1));
-				System.out.println(n2.restar(n2));
 				break;
 
 			}
