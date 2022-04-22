@@ -18,40 +18,40 @@ public class MainComplejo {
 			switch (opc) {
 			case 1: {
 				double real = 0, imag = 0;
-				Complejo n1 = new Complejo(real, imag);
+				Complejo c1 = new Complejo(real, imag);
 				System.out.println("Introduce la parte real de tu numero");
 				real = Double.parseDouble(teclado.nextLine());
 
 				System.out.println("Introduce la parte imaginaria de tu numero");
 				imag = Double.parseDouble(teclado.nextLine());
 
-				Complejo n2 = new Complejo(real, imag);
+				Complejo c2 = new Complejo(real, imag);
 				System.out.println("Introduce la parte real de tu numero");
 				real = Double.parseDouble(teclado.nextLine());
 
 				System.out.println("Introduce la parte imaginaria de tu numero");
 				imag = Double.parseDouble(teclado.nextLine());
 
-				System.out.println(n2.sumar(n2));
+				System.out.println(c2.sumar(c2));
 				break;
 			}
 			case 2: {
 				double real = 0, imag = 0;
-				Complejo n1 = new Complejo(real, imag);
+				Complejo c1 = new Complejo(real, imag);
 				System.out.println("Introduce la parte real de tu numero");
 				real = Double.parseDouble(teclado.nextLine());
 
 				System.out.println("Introduce la parte imaginaria de tu numero");
 				imag = Double.parseDouble(teclado.nextLine());
 
-				Complejo n2 = new Complejo(real, imag);
+				Complejo c2 = new Complejo(real, imag);
 				System.out.println("Introduce la parte real de tu numero");
 				real = Double.parseDouble(teclado.nextLine());
 
 				System.out.println("Introduce la parte imaginaria de tu numero");
 				imag = Double.parseDouble(teclado.nextLine());
 
-				System.out.println(n2.restar(n2));
+				System.out.println(c2.restar(c2));
 				break;
 
 
