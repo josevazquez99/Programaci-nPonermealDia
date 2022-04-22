@@ -36,13 +36,7 @@ public class MainComplejo {
 				break;
 			}
 			case 2: {
-				double real, imag;
-				System.out.println("Introduce la parte real de tu numero");
-				real = Double.parseDouble(teclado.nextLine());
-
-				System.out.println("Introduce la parte imaginaria de tu numero");
-				imag = Double.parseDouble(teclado.nextLine());
-
+				double real = 0, imag = 0;
 				Complejo n1 = new Complejo(real, imag);
 				System.out.println("Introduce la parte real de tu numero");
 				real = Double.parseDouble(teclado.nextLine());
@@ -57,8 +51,9 @@ public class MainComplejo {
 				System.out.println("Introduce la parte imaginaria de tu numero");
 				imag = Double.parseDouble(teclado.nextLine());
 
-				System.out.println(n1.restar(n1));
+				System.out.println(n2.restar(n2));
 				break;
+
 
 			}
 			default:
