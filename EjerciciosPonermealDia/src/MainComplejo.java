@@ -17,46 +17,46 @@ public class MainComplejo {
 			opc = Integer.parseInt(teclado.nextLine());
 			switch (opc) {
 			case 1: {
-				double parteReal = 0, parteImaginaria = 0;
-				Complejo n1 = new Complejo(parteReal, parteImaginaria);
+				double real = 0, imag = 0;
+				Complejo n1 = new Complejo(real, imag);
 				System.out.println("Introduce la parte real de tu numero");
-				parteReal = Double.parseDouble(teclado.nextLine());
+				real = Double.parseDouble(teclado.nextLine());
 
 				System.out.println("Introduce la parte imaginaria de tu numero");
-				parteImaginaria = Double.parseDouble(teclado.nextLine());
+				imag = Double.parseDouble(teclado.nextLine());
 
-				Complejo n2 = new Complejo(parteReal, parteImaginaria);
+				Complejo n2 = new Complejo(real, imag);
 				System.out.println("Introduce la parte real de tu numero");
-				parteReal = Double.parseDouble(teclado.nextLine());
+				real = Double.parseDouble(teclado.nextLine());
 
 				System.out.println("Introduce la parte imaginaria de tu numero");
-				parteImaginaria = Double.parseDouble(teclado.nextLine());
+				imag = Double.parseDouble(teclado.nextLine());
 
 				System.out.println(n2.sumar(n2));
 				System.out.println(n1.sumar(n1));
 				break;
 			}
 			case 2: {
-				double parteReal, parteImaginaria;
+				double real, imag;
 				System.out.println("Introduce la parte real de tu numero");
-				parteReal = Double.parseDouble(teclado.nextLine());
+				real = Double.parseDouble(teclado.nextLine());
 
 				System.out.println("Introduce la parte imaginaria de tu numero");
-				parteImaginaria = Double.parseDouble(teclado.nextLine());
+				imag = Double.parseDouble(teclado.nextLine());
 
-				Complejo n1 = new Complejo(parteReal, parteImaginaria);
+				Complejo n1 = new Complejo(real, imag);
 				System.out.println("Introduce la parte real de tu numero");
-				parteReal = Double.parseDouble(teclado.nextLine());
+				real = Double.parseDouble(teclado.nextLine());
 
 				System.out.println("Introduce la parte imaginaria de tu numero");
-				parteImaginaria = Double.parseDouble(teclado.nextLine());
+				imag = Double.parseDouble(teclado.nextLine());
 
-				Complejo n2 = new Complejo(parteReal, parteImaginaria);
+				Complejo n2 = new Complejo(real, imag);
 				System.out.println("Introduce la parte real de tu numero");
-				parteReal = Double.parseDouble(teclado.nextLine());
+				real = Double.parseDouble(teclado.nextLine());
 
 				System.out.println("Introduce la parte imaginaria de tu numero");
-				parteImaginaria = Double.parseDouble(teclado.nextLine());
+				imag = Double.parseDouble(teclado.nextLine());
 
 				System.out.println(n1.restar(n1));
 				System.out.println(n2.restar(n2));
