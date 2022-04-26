@@ -10,134 +10,100 @@ public class MainAvion {
 
 		// Declaramos el objeto
 
-		char opcion;
-		System.out.println("Bienvenido a tu próximo viaje");
-		System.out.println("Que tipo de avion desea coger");
-		opcion = teclado.nextLine().charAt(0);
+		int opcion1;
+		char opcion2;
 
-		if (opcion == 1) {
-			Avion a1 = new Avion("2", 100);
-			System.out.println(menu());
-			while (opcion != 7) {
-				switch (opcion) {
-				case '1': {
-					int capacidad;
-					double km;
-					System.out.println("Introduce el número de asientos ");
-					capacidad = Integer.parseInt(teclado.nextLine());
-					System.out.println("Introduce el número de kilometros ");
-					km = Double.parseDouble(teclado.nextLine());
-					try {
-						System.out.println(a1.asignarVuelo(capacidad, km));
-					} catch (AvionException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+		Avion a1 = null;
 
-				}
-					break;
-				case '2': {
-					System.out.println(a1.getNumVuelos());
+		do {
+			System.out.println("Elije una opcion");
+			System.out.println(menu1());
+			opcion1 = Integer.parseInt(teclado.nextLine());
 
-				}
-					break;
-				case '3': {
-					System.out.println(a1.getKmVolados());
+			if (opcion1 == 1) {
 
-				}
-					break;
-				case '4': {
-					System.out.println(a1.getMediaKm());
-				}
-					break;
-				case '5': {
-					String compannia;
-					System.out.println("Que compañía ha comprado el avión");
-					compannia = teclado.nextLine();
-					a1.setCompannia(compannia);
-				}
-					break;
-				case '6': {
-					System.out.println(a1.toString());
+				System.out.println("Introduce el identificador");
+				String idAvion = teclado.nextLine();
+				a1 = new Avion(idAvion, 200);
+			} else {
+				System.out.println("Introduce el identificador");
+				String idAvion = teclado.nextLine();
+				System.out.println("Introduce la compañia");
+				String compannia = teclado.nextLine();
+				a1 = new Avion(idAvion, compannia, 100);
 
-				}
-					break;
-				case '7': {
-					System.out.println("Apagar y salir");
-				}
-					break;
-				default:
-					System.out.println("Error");
-				}
-				System.out.println(menu());
-				System.out.println("Elija una opcion");
-				opcion = teclado.nextLine().charAt(0);
 			}
 
-		} else {
-			Avion a2 = new Avion("2", "Travel", 100);
-			System.out.println(menu());
-			while (opcion != 7) {
-				switch (opcion) {
-				case '1': {
-					int capacidad;
-					double km;
-					System.out.println("Introduce el número de asientos ");
-					capacidad = Integer.parseInt(teclado.nextLine());
-					System.out.println("Introduce el número de kilometros ");
-					km = Double.parseDouble(teclado.nextLine());
-					try {
-						System.out.println(a2.asignarVuelo(capacidad, km));
-					} catch (AvionException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+		} while (opcion1 != 1 && opcion1 != 2);
+		System.out.println("Elije una opcion");
+		System.out.println(menu2());
+		opcion2 = teclado.nextLine().charAt(0);
+		System.out.println(a1);
+		while (opcion2 != 'g') {
+			switch (opcion2) {
 
-				}
-					break;
-				case '2': {
-					System.out.println(a2.getNumVuelos());
+			case 'a': {
+				int capacidad;
+				double km;
+				System.out.println("Introduce la capacidad");
+				capacidad = Integer.parseInt(teclado.nextLine());
 
-				}
-					break;
-				case '3': {
-					System.out.println(a2.getKmVolados());
+				System.out.println("Introduce el numero de kilometros");
+				km = Integer.parseInt(teclado.nextLine());
 
+				try {
+					System.out.println(a1.asignarVuelo(capacidad, km));
+				} catch (AvionException e) {
+					e.printStackTrace();
 				}
-					break;
-				case '4': {
-					System.out.println(a2.getMediaKm());
-				}
-					break;
-				case '5': {
-					String compannia;
-					System.out.println("Que compañía ha comprado el avión");
-					compannia = teclado.nextLine();
-					a2.setCompannia(compannia);
-				}
-					break;
-				case '6': {
-					System.out.println(a2.toString());
-
-				}
-					break;
-				case '7': {
-					System.out.println("Apagar y salir");
-				}
-					break;
-				default:
-					System.out.println("Error");
-				}
-				System.out.println(menu());
-				System.out.println("Elija una opcion");
-				opcion = teclado.nextLine().charAt(0);
+				break;
 			}
+			case 'b': {
+				System.out.println(a1.getNumVuelos());
+				break;
+			}
+			case 'c': {
+				System.out.println(a1.getKmVolados());
+				break;
+			}
+			case 'd': {
+				System.out.println(a1.getMediaKm());
+				break;
+			}
+			case 'e': {
+				String compannia;
+				System.out.println("Que compañia ha comprado el avion");
+				compannia = teclado.nextLine();
+				a1.setCompannia(compannia);
+				System.out.println(a1);
+				break;
+			}
+			case 'f': {
+				System.out.println(a1.toString());
+				break;
+			}
+			case 'g': {
+				System.out.println("Salir");
+			}
+
+			}
+			System.out.println(a1);
+			System.out.println("Elije una opcion");
+			System.out.println(menu2());
+			opcion2 = teclado.nextLine().charAt(0);
+
 		}
+
 	}
 
-	private static String menu() {
-		return "1-.Asignar Vuelo\n" + "2-.Obtener numero de vuelos\n" + "3-.Obtener numero de km\n"
-				+ "4-.Obtener la media de km\n" + "5-.Cambio de compañia\n" + "6-.Mostrar Información del avión\n"
-				+ "5-.Apagar y salir\n";
+	private static String menu1() {
+		return "1.Crear avion solo con el identificador \n" + "2.Crear avion con el identificador y la compañia";
 	}
+
+	private static String menu2() {
+		return "a.Asignar vuelo \n" + "b.Obtener el numero de vuelos \n" + "c.Obtener numero de kilometros \n"
+				+ "d.Obtener la media de km por vuelo \n" + "e.Cambio de compañia \n"
+				+ "f.Mostrar informacion del avion \n" + "G.Salir";
+	}
+
 }
