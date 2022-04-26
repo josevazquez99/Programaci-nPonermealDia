@@ -1,6 +1,6 @@
 package Avion;
 
-public class Avion extends AvionException{
+public class Avion extends AvionException {
 	private String idAvion;
 	private int capacidad;
 	private int numVuelos = 0;
@@ -14,16 +14,20 @@ public class Avion extends AvionException{
 	}
 
 	public Avion(String idAvion, String compannia, int capacidad) {
+		super();
 		this.idAvion = idAvion;
 		this.capacidad = capacidad;
 		this.compannia = compannia;
 	}
 
-	public boolean asignarVuelo(int capacidad, double kmVolados) throws AvionException{
+	public boolean asignarVuelo(int capacidad, double kmVolados) throws AvionException {
 		boolean resultado = true;
 		if (capacidad < 0 || capacidad > this.capacidad || kmVolados < 0) {
 			resultado = false;
 			throw new AvionException("La capacidad debe ser mayor que 0");
+		} else if (kmVolados < 0) {
+			throw new AvionException("Los kilometros deben ser  debe ser mayor que 0");
+
 		} else {
 			resultado = true;
 			this.capacidad++;
@@ -35,21 +39,11 @@ public class Avion extends AvionException{
 
 	}
 
-	public int getNumVuelos() throws AvionException {
-		if (numVuelos < 0) {
-			throw new AvionException("El numero de vuelos debe ser mayor que 0");
-		} else {
-			return numVuelos;
-
-		}
-
+	public int getNumVuelos() {
+		return numVuelos;
 	}
 
-	public double getKmVolados() throws AvionException {
-		if (kmVolados < 0) {
-			throw new AvionException("Los Kilometros de vuelos debe ser mayor que 0");
-
-		}
+	public double getKmVolados() {
 		return kmVolados;
 	}
 
@@ -82,3 +76,4 @@ public class Avion extends AvionException{
 	}
 
 }
+
