@@ -19,6 +19,7 @@ public class LineaMain {
 		Linea Linea1 = new Linea(x, y, xB, yB);
 		char opcion;
 		char movimiento;
+		System.out.println(menu());
 		System.out.println("Elija una opcion");
 		opcion = teclado.nextLine().charAt(0);
 		while (opcion != 3) {
@@ -44,7 +45,14 @@ public class LineaMain {
 			default:
 				System.out.println("Error");
 			}
+			System.out.println(menu());
+			System.out.println("Elija una opcion");
+			opcion = teclado.nextLine().charAt(0);
 		}
+	}
+
+	private static String menu() {
+		return "1-.Mover Linea\n" + "2-.Mostrar Linea\n" + "3-.Salir\n";
 	}
 
 }
