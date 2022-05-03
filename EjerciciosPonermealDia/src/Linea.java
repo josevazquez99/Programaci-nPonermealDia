@@ -2,39 +2,33 @@ package Relacion7;
 
 import java.util.Objects;
 
-public class Linea {
-	private int puntoA;
-	private int puntoB;
-	public int x;
-	public int y;
-	public int xB;
-	public int yB;
+public class Linea extends Punto {
+	private Punto puntoA;
+	private Punto puntoB;
 
 	public Linea() {
 		super();
 	}
 
-	public Linea(int x, int y, int xB, int yB) {
-		this.x = puntoA;
-		this.y = puntoA;
-		this.xB = puntoB;
-		this.yB = puntoB;
+	public Linea(Punto puntoA, Punto puntoB) {
+		this.puntoA = puntoA;
+		this.puntoB = puntoB;
 
 	}
 
-	public int getPuntoA() {
+	public Punto getPuntoA() {
 		return puntoA;
 	}
 
-	public void setPuntoA(int puntoA) {
+	public void setPuntoA(Punto puntoA) {
 		this.puntoA = puntoA;
 	}
 
-	public int getPuntoB() {
+	public Punto getPuntoB() {
 		return puntoB;
 	}
 
-	public void setPuntoB(int puntoB) {
+	public void setPuntoB(Punto puntoB) {
 		this.puntoB = puntoB;
 	}
 
@@ -55,40 +49,31 @@ public class Linea {
 		return puntoA == other.puntoA && puntoB == other.puntoB;
 	}
 
-	public double moverDerecha() {
-		double resultado;
-		resultado = this.x++;
-		resultado = this.xB++;
-		return resultado;
+	public void moverDerecha(double cant) {
+		this.puntoA.setX(this.puntoA.getX() + cant);
+		this.puntoB.setX(this.puntoB.getX() + cant);
 
 	}
 
-	public double moverIzquierda() {
-		double resultado;
-		resultado = this.x--;
-		resultado = this.yB--;
-		return resultado;
+	public void moverIzquierda(double cant) {
+		this.puntoA.setX(this.puntoA.getX() - cant);
+		this.puntoB.setX(this.puntoB.getX() - cant);
 
 	}
 
-	public double moverArriba() {
-		double resultado;
-		resultado = this.y++;
-		resultado = this.yB++;
-		return resultado;
+	public void moverArriba(double cant) {
+		this.puntoA.setY(this.puntoA.getY() + cant);
+		this.puntoB.setY(this.puntoB.getY() + cant);
 	}
 
-	public double moverAbajo() {
-		double resultado;
-		resultado = this.y--;
-		resultado = this.yB--;
-		return resultado;
+	public void moverAbajo(double cant) {
+		this.puntoA.setY(this.puntoA.getY() - cant);
+		this.puntoB.setY(this.puntoB.getY() - cant);
 	}
 
 	@Override
 	public String toString() {
-		return "Linea [puntoA=" + puntoA + ", puntoB=" + puntoB + ", x=" + x + ", y=" + y + ", xB=" + xB + ", yB=" + yB
-				+ "]";
+		return "Linea [puntoA=" + puntoA + ", puntoB=" + puntoB + "]";
 	}
 
 }
