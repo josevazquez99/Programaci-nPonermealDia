@@ -8,17 +8,19 @@ public class LineaMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Introduce las coordenadas x  del punto A ");
-		int x = teclado.nextInt();
+		int x = Integer.parseInt(teclado.nextLine());
 		System.out.println("Introduce las coordenadas y  del punto A ");
-		int y = teclado.nextInt();
+		int y = Integer.parseInt(teclado.nextLine());
 		System.out.println("Introduce las coordenadas x punto B");
-		int xB = teclado.nextInt();
+		int xB = Integer.parseInt(teclado.nextLine());
 		System.out.println("Introduce las coordenadas y del punto B");
-		int yB = teclado.nextInt();
-
-		Linea Linea1 = new Linea(x, y, xB, yB);
+		int yB = Integer.parseInt(teclado.nextLine());
+		Punto p1 = new Punto(x, y);
+		Punto p2 = new Punto(xB, yB);
+		Linea linea1 = new Linea(p1, p2);
 		char opcion;
 		char movimiento;
+		int cant;
 		System.out.println(menu());
 		System.out.println("Elija una opcion");
 		opcion = teclado.nextLine().charAt(0);
@@ -28,18 +30,35 @@ public class LineaMain {
 				System.out.println("Introduce el movimiento ");
 				movimiento = teclado.nextLine().charAt(0);
 				if (movimiento == 'A') {
-					System.out.println(Linea1.moverArriba());
+					System.out.println("Introduce la cantidad que quieras mover");
+					cant = Integer.parseInt(teclado.nextLine());
+					linea1.moverArriba(cant);
+					System.out.println(linea1);
 				} else if (movimiento == 'B') {
-					System.out.println(Linea1.moverAbajo());
+					System.out.println("Introduce la cantidad que quieras mover");
+					cant = Integer.parseInt(teclado.nextLine());
+					linea1.moverAbajo(cant);
+					System.out.println(linea1);
 				} else if (movimiento == 'I') {
-					System.out.println(Linea1.moverIzquierda());
+					System.out.println("Introduce la cantidad que quieras mover");
+					cant = Integer.parseInt(teclado.nextLine());
+					linea1.moverIzquierda(cant);
+					System.out.println(linea1);
 				} else if (movimiento == 'D') {
-					System.out.println(Linea1.moverDerecha());
+					System.out.println("Introduce la cantidad que quieras mover");
+					cant = Integer.parseInt(teclado.nextLine());
+					linea1.moverDerecha(cant);
+					System.out.println(linea1);
+
 				}
 			}
 				break;
-			case '7': {
-				System.out.println(Linea1.toString());
+			case '2': {
+				System.out.println(linea1.toString());
+			}
+				break;
+			case '3': {
+				System.out.println("Apagar y salir");
 			}
 				break;
 			default:
@@ -56,3 +75,4 @@ public class LineaMain {
 	}
 
 }
+
