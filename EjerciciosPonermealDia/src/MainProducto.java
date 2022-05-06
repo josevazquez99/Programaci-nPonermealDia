@@ -9,7 +9,7 @@ public class MainProducto {
 		// TODO Auto-generated method stub
 		System.out.println("Cuantos productos quieres");
 		int cant = Integer.parseInt(teclado.nextLine());
-		Producto p1 = new Producto(2, "cascos", 20, 20);
+		Producto p1 = new Producto("cascos",20);
 		p1.precioVenta(cant);
 		System.out.println("Lo que tienes que pagar es " + p1.precioVenta(cant) + " euros");
 
