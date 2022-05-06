@@ -1,29 +1,40 @@
 package Relacion7;
 
 public class Producto {
-	private static int codigo;
+	private int codigo;
+	private static int codigosiguiente;
 	private String descripcion;
 	private double precio;
-	private int iva;
+	private static final int iva = 20;
 
 	public Producto() {
 		super();
 	}
 
-	public Producto(int codigo, String descripcion, double precio, int iva) {
-		Producto.codigo = codigo;
+	public Producto(String descripcion, double precio) {
 		this.descripcion = descripcion;
 		this.precio = precio;
-		this.iva = iva;
-
+		this.codigo += codigosiguiente;
 	}
 
-	public static int getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public static void setCodigo(int codigo) {
-		Producto.codigo = codigo;
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public static int getCodigosiguiente() {
+		return codigosiguiente;
+	}
+
+	public static void setCodigosiguiente(int codigosiguiente) {
+		Producto.codigosiguiente = codigosiguiente;
+	}
+
+	public static int getIva() {
+		return iva;
 	}
 
 	public String getDescripcion() {
@@ -42,22 +53,12 @@ public class Producto {
 		this.precio = precio;
 	}
 
-	public int getIva() {
-		return iva;
-	}
-
-	public void setIva(int iva) {
-		this.iva = iva;
-	}
-
 	public double precioVenta(int cant) {
 		double resultado = 0;
 		double precioVenta;
 		if (cant > 0) {
 			precioVenta = (this.precio * iva) / 100;
 			resultado = cant * (this.precio + precioVenta);
-		} else {
-			System.out.println("La cantidad debe ser mayor que 0 vuelva a intentarlo");
 		}
 		return resultado;
 
